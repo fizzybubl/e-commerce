@@ -187,6 +187,7 @@ nav .btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: translate(40px, -13px);
 }
 
 .total-items {
