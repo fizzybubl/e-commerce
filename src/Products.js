@@ -145,7 +145,7 @@ function Products() {
           className={view === "grid" ? "products-grid" : "products-list"}
         >
           {products.map((product) => {
-            return <Product {...product} />;
+            return <Product {...product} key={product.id} />;
           })}
         </section>
       </section>

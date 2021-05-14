@@ -9,6 +9,7 @@ import Navbar from "./Navbar";
 import About from "./About";
 import Sidebar from "./Sidebar";
 import ScrollToTop from "./ScrollToTop";
+import Cart from "./Cart";
 
 function App() {
   const { loading } = useGlobalContext();
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/products">
           <Products />
+        </Route>
+        <Route path="/cart">
+          <Cart />
         </Route>
         <Route path="/product/:id" children={<SingleProduct />}></Route>
       </Switch>

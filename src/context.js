@@ -17,6 +17,62 @@ const AppProvider = ({ children }) => {
   const [category, setCategory] = useState("all");
   const [name, setName] = useState("");
   const [view, setView] = useState("grid");
+  const [cartItems, setCartItems] = useState([]);
+  const [amount, setAmount] = useState(1);
+
+  const deleteItem = (id) => {
+    const newCartItems = cartItems.filter((item) => item.id !== id);
+    setCartItems(newCartItems);
+  };
+
+  const handleToggleCart = (type, id) => {
+    if (type === "inc") {
+      const newCartItems = cartItems.map((item) => {
+        if (item.id === id) {
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+      setCartItems(newCartItems);
+    } else {
+      const newCartItems = cartItems
+        .map((item) => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity - 1 };
+          }
+          return item;
+        })
+        .filter((item) => item.quantity > 0);
+      setCartItems(newCartItems);
+    }
+  };
+
+  const handleToggle = (type, id) => {
+    if (type === "dec") {
+      if (amount > 1) {
+        setAmount(amount - 1);
+      }
+    } else {
+      setAmount(amount + 1);
+    }
+  };
+
+  const addToCart = (id, amount) => {
+    console.log(id, amount);
+    const [product] = cartItems.filter((item) => item.id === id);
+
+    if (product) {
+      const otherProducts = cartItems.filter((item) => item.id !== product.id);
+      setCartItems([
+        ...otherProducts,
+        { ...product, quantity: product.quantity + amount },
+      ]);
+    } else {
+      const [newProduct] = products.filter((item) => item.id === id);
+
+      setCartItems([...cartItems, { ...newProduct, quantity: amount }]);
+    }
+  };
 
   const filterProducts = () => {
     if (company !== "all" && category !== "all") {
@@ -60,6 +116,7 @@ const AppProvider = ({ children }) => {
         showSidebar,
         setShowSidebar,
         products,
+        setProducts,
         price,
         setPrice,
         setName,
@@ -70,6 +127,14 @@ const AppProvider = ({ children }) => {
         setCategory,
         view,
         setView,
+        addToCart,
+        cartItems,
+        amount,
+        setAmount,
+        handleToggle,
+        handleToggleCart,
+        deleteItem,
+        setCartItems,
       }}
     >
       {children}

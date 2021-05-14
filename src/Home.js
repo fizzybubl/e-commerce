@@ -6,10 +6,11 @@ import data from "./data";
 import Product from "./Product";
 
 function Home() {
-  const { products, setView } = useGlobalContext();
+  const { setView, products, setProducts } = useGlobalContext();
 
   React.useEffect(() => {
     setView("grid");
+    setProducts(data);
   }, []);
 
   return (
@@ -38,9 +39,9 @@ function Home() {
           <div className="underline"></div>
         </header>
         <div className="grid-container">
-          {data.map((product) => {
+          {products.map((product) => {
             if (product.showPage) {
-              return <Product {...product} />;
+              return <Product {...product} key={product.id} />;
             }
           })}
         </div>

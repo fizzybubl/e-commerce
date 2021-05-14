@@ -17,6 +17,7 @@ for (index, image) in enumerate(images):
     "id":np.random.random() * 3000000,
     "company":companies[random.randint(0,len(companies) - 1)],
     "category":categories[random.randint(0,len(categories) - 1)],
+    "quantity":1,
     "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, vero vitae modi mollitia tempore laudantium fugiat dignissimos voluptate. Enim natus reiciendis repellat officiis labore sint maiores cum dolorem ex voluptate!"}
     imagesObj.append(currentObj)
 

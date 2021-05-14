@@ -4,7 +4,11 @@ import { FaShoppingCart, FaUserPlus, FaBars } from "react-icons/fa";
 import { useGlobalContext } from "./context";
 
 function Navbar() {
-  const { showSiderbar, setShowSidebar } = useGlobalContext();
+  const { showSiderbar, setShowSidebar, cartItems } = useGlobalContext();
+  const totalItems = cartItems.reduce((value, item) => {
+    value += item.quantity;
+    return value;
+  }, 0);
   return (
     <nav className="nav-bar">
       <div className="nav-center">
@@ -32,13 +36,16 @@ function Navbar() {
           </Link>
         </div>
         <div className="user-container">
-          <Link to="/home">
-            <button className="btn user-btn">
+          <Link to="/cart">
+            <button className="btn user-btn cart-icon">
               <span>Cart</span> <FaShoppingCart />
             </button>
+            <div className="number-items">
+              <p>{totalItems}</p>
+            </div>
           </Link>
           <Link to="/home">
-            <button className="btn user-btn">
+            <button className="btn user-btn login-icon">
               <span>Login</span> <FaUserPlus />
             </button>
           </Link>
