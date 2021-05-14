@@ -116,37 +116,39 @@ function Products() {
             </form>
           </div>
         </aside>
-        <div className="options">
-          <div className="options-btn">
-            <button className="show-grid" onClick={() => setView("grid")}>
-              <FaWindows />
-            </button>
-            <button className="show-list" onClick={() => setView("list")}>
-              <FaElementor />
-            </button>
-            <p>{products.length} products found</p>
-          </div>
+        <section>
+          <div className="options">
+            <div className="options-btn">
+              <button className="show-grid" onClick={() => setView("grid")}>
+                <FaWindows />
+              </button>
+              <button className="show-list" onClick={() => setView("list")}>
+                <FaElementor />
+              </button>
+              <p>{products.length} products found</p>
+            </div>
 
-          <div className="sort-options">
-            <p>Sort by</p>
-            <select
-              name="sort-options-menu"
-              id="sort-options-menu"
-              className="sort-options-menu"
-            >
-              <option value="lowest">{"Price (Lowest)"}</option>
-              <option value="highest">{"Price (Highest)"}</option>
-              <option value="a-z">{"Name (A-Z)"}</option>
-              <option value="z-a">{"Name (Z-A)"}</option>
-            </select>
+            <div className="sort-options">
+              <p>Sort by</p>
+              <select
+                name="sort-options-menu"
+                id="sort-options-menu"
+                className="sort-options-menu"
+              >
+                <option value="lowest">{"Price (Lowest)"}</option>
+                <option value="highest">{"Price (Highest)"}</option>
+                <option value="a-z">{"Name (A-Z)"}</option>
+                <option value="z-a">{"Name (Z-A)"}</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <section
-          className={view === "grid" ? "products-grid" : "products-list"}
-        >
-          {products.map((product) => {
-            return <Product {...product} key={product.id} />;
-          })}
+          <section
+            className={view === "grid" ? "products-grid" : "products-list"}
+          >
+            {products.map((product) => {
+              return <Product {...product} key={product.id} />;
+            })}
+          </section>
         </section>
       </section>
       <footer>

@@ -64,6 +64,7 @@ h2,
 h3,
 h4 {
   text-transform: capitalize;
+  font-family: Roboto;
 }
 
 button {
