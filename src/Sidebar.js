@@ -4,7 +4,11 @@ import { FaShoppingCart, FaUserPlus, FaWindowClose } from "react-icons/fa";
 import { useGlobalContext } from "./context";
 
 function Sidebar() {
-  const { showSidebar, setShowSidebar } = useGlobalContext();
+  const { showSidebar, setShowSidebar, cartItems } = useGlobalContext();
+  const totalItems = cartItems.reduce((value, item) => {
+    value += item.quantity;
+    return value;
+  }, 0);
   return (
     <aside className={`sidebar ${showSidebar && "show-sidebar"}`}>
       <button
@@ -26,9 +30,12 @@ function Sidebar() {
           </Link>
         </div>
         <div className="user-container">
-          <Link to="/home">
+          <Link to="/cart">
             <button className="btn user-btn">
               <span>Cart</span> <FaShoppingCart />
+              <div className="number-items">
+                <p className="total-items">{totalItems}</p>
+              </div>
             </button>
           </Link>
           <Link to="/home">

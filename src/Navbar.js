@@ -39,10 +39,10 @@ function Navbar() {
           <Link to="/cart">
             <button className="btn user-btn cart-icon">
               <span>Cart</span> <FaShoppingCart />
+              <div className="number-items">
+                <p className="total-items">{totalItems}</p>
+              </div>
             </button>
-            <div className="number-items">
-              <p>{totalItems}</p>
-            </div>
           </Link>
           <Link to="/home">
             <button className="btn user-btn login-icon">

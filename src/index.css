@@ -184,15 +184,15 @@ nav .btn {
   height: 1.2rem;
   border-radius: 50%;
   position: absolute;
-  top: 12px;
-  right: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.number-items p {
+.total-items {
   color: white;
+  font-size: 18px;
+  font-weight: normal;
 }
 
 .btn:hover {
@@ -235,6 +235,9 @@ nav .btn {
   }
   .nav-center {
     margin: 0 1.5rem;
+  }
+  .number-items {
+    transform: translate(65px, -7px);
   }
 }
 
