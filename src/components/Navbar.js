@@ -1,27 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaUserPlus, FaWindowClose } from "react-icons/fa";
-import { useGlobalContext } from "./context";
+import { FaShoppingCart, FaUserPlus, FaBars } from "react-icons/fa";
+import { useGlobalContext } from "../context";
 
-function Sidebar() {
-  const { showSidebar, setShowSidebar, cartItems } = useGlobalContext();
+function Navbar() {
+  const { showSiderbar, setShowSidebar, cartItems } = useGlobalContext();
   const totalItems = cartItems.reduce((value, item) => {
     value += item.quantity;
     return value;
   }, 0);
   return (
-    <aside className={`sidebar ${showSidebar && "show-sidebar"}`}>
-      <button
-        className="close-sidebar"
-        onClick={() => setShowSidebar(!showSidebar)}
-      >
-        <FaWindowClose />
-      </button>
-      <div className="sidebar-center">
+    <nav className="nav-bar">
+      <div className="nav-center">
+        <Link to="/">
+          <h3 className="logo">
+            <span>E</span>-Commerce
+          </h3>
+        </Link>
+        <button
+          className="btn toggle-btn"
+          onClick={() => setShowSidebar(!showSiderbar)}
+        >
+          <FaBars />
+        </button>
         <div className="links-container">
           <Link to="/">
             <button className="btn">Home</button>
           </Link>
+
           <Link to="/about">
             <button className="btn">About</button>
           </Link>
@@ -31,7 +37,7 @@ function Sidebar() {
         </div>
         <div className="user-container">
           <Link to="/cart">
-            <button className="btn user-btn">
+            <button className="btn user-btn cart-icon">
               <span>Cart</span> <FaShoppingCart />
               <div className="number-items">
                 <p className="total-items">{totalItems}</p>
@@ -39,14 +45,14 @@ function Sidebar() {
             </button>
           </Link>
           <Link to="/home">
-            <button className="btn user-btn">
+            <button className="btn user-btn login-icon">
               <span>Login</span> <FaUserPlus />
             </button>
           </Link>
         </div>
       </div>
-    </aside>
+    </nav>
   );
 }
 
-export default Sidebar;
+export default Navbar;

@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
-import { useGlobalContext } from "./context";
-import data from "./data";
+import { useGlobalContext } from "../context";
 
 function SingleProduct() {
   const { products, addToCart, amount, setAmount, handleToggle } =

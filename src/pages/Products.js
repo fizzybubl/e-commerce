@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 import { Link } from "react-router-dom";
 import { FaSearch, FaElementor, FaWindows } from "react-icons/fa";
-import Product from "./Product";
+import Product from "../components/Product";
 
 function Products() {
   const {

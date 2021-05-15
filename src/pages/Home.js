@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "./context";
+import { useGlobalContext } from "../context";
 import { FaSearch, FaRegNewspaper, FaInvision, FaReact } from "react-icons/fa";
-import data from "./data";
-import Product from "./Product";
+import Product from "../components/Product";
+import data from "../data";
 
 function Home() {
   const { setView, products, setProducts } = useGlobalContext();

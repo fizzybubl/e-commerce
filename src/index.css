@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Satisfy&display=swap");
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --blue1: rgba(74, 226, 226, 0.795);
   --blue2: rgb(11, 135, 167);

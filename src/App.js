@@ -1,15 +1,15 @@
 import React from "react";
 import { useGlobalContext } from "./context";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Home from "./Home";
-import Products from "./Products";
-import Loading from "./Loading";
-import SingleProduct from "./SingleProduct";
-import Navbar from "./Navbar";
-import About from "./About";
-import Sidebar from "./Sidebar";
-import ScrollToTop from "./ScrollToTop";
-import Cart from "./Cart";
+import Home from "./pages/Home";
+import Products from "./pages/Products";
+import Loading from "./pages/Loading";
+import SingleProduct from "./pages/SingleProduct";
+import Navbar from "./components/Navbar";
+import About from "./pages/About";
+import Sidebar from "./components/Sidebar";
+import ScrollToTop from "./components/ScrollToTop";
+import Cart from "./pages/Cart";
 
 function App() {
   const { loading } = useGlobalContext();
