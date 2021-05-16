@@ -33,7 +33,7 @@ function SingleProduct() {
       <article className="product-container">
         <div className="single-product-center">
           <Link to="/products">
-            <button className="back-btn btn">BACK TO PRODUCTS</button>
+            <button className="btn back-btn">BACK TO PRODUCTS</button>
           </Link>
           <div className="product-img">
             <img src={image} alt={name} />
@@ -63,15 +63,6 @@ function SingleProduct() {
           </div>
         </div>
       </article>
-      <footer>
-        <p>
-          &#169; 2021 {"   "}
-          <span className="logo">
-            <span>E</span>-Commerce
-          </span>{" "}
-          {"   "} All rights reserved.
-        </p>
-      </footer>
     </section>
   );
 }

@@ -11,6 +11,7 @@ import Sidebar from "./components/Sidebar";
 import ScrollToTop from "./components/ScrollToTop";
 import Cart from "./pages/Cart";
 import UserMenu from "./components/UserMenu";
+import Footer from "./components/Footer";
 
 function App() {
   const { loading } = useGlobalContext();
@@ -40,6 +41,7 @@ function App() {
         </Route>
         <Route path="/product/:id" children={<SingleProduct />}></Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

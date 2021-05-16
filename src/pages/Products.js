@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useGlobalContext } from "../context";
 import { Link } from "react-router-dom";
-import { FaSearch, FaElementor, FaWindows } from "react-icons/fa";
+import { FaElementor, FaWindows } from "react-icons/fa";
 import Product from "../components/Product";
 
 function Products() {
@@ -151,15 +151,6 @@ function Products() {
           </section>
         </section>
       </section>
-      <footer>
-        <p>
-          &#169; 2021 {"   "}
-          <span className="logo">
-            <span>E</span>-Commerce
-          </span>{" "}
-          {"   "} All rights reserved.
-        </p>
-      </footer>
     </main>
   );
 }

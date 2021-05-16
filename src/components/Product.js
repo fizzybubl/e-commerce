@@ -1,7 +1,7 @@
 import React from "react";
 import { useGlobalContext } from "../context";
 import { Link } from "react-router-dom";
-import { FaSearch, FaElementor, FaWindows } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 
 function Product({ image, id, name, price, info }) {
   const { view } = useGlobalContext();

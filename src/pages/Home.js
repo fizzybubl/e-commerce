@@ -86,15 +86,6 @@ function Home() {
           </div>
         </div>
       </section>
-      <footer>
-        <p>
-          &#169; 2021 {"   "}
-          <span className="logo">
-            <span>E</span>-Commerce
-          </span>{" "}
-          {"   "} All rights reserved.
-        </p>
-      </footer>
     </main>
   );
 }
