@@ -91,7 +91,7 @@ const AppProvider = ({ children }) => {
           product.company === company &&
           product.category === category &&
           product.price <= price &&
-          item.name.includes(name)
+          product.name.includes(name)
       );
       setProducts(newProducts);
     } else if (company !== "all" && name) {
@@ -99,7 +99,7 @@ const AppProvider = ({ children }) => {
         (product) =>
           product.company === company &&
           product.price <= price &&
-          item.name.includes(name)
+          product.name.includes(name)
       );
       setProducts(newProducts);
     } else if (category !== "all" && name) {
@@ -107,7 +107,7 @@ const AppProvider = ({ children }) => {
         (product) =>
           product.category === category &&
           product.price <= price &&
-          item.name.includes(name)
+          product.name.includes(name)
       );
       setProducts(newProducts);
     } else if (category !== "all" && company !== "all") {
@@ -128,7 +128,7 @@ const AppProvider = ({ children }) => {
       );
     } else if (name) {
       const newProducts = data.filter(
-        (product) => product.price <= price && item.name.includes(name)
+        (product) => product.price <= price && product.name.includes(name)
       );
       setProducts(newProducts);
     } else {
