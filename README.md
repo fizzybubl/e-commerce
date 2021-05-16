@@ -1,4 +1,4 @@
- # Check the [website](https://optimistic-noether-612a4a.netlify.app/products)
+ # Check the [website](https://e-commerce-dragos.netlify.app)
 
 # Getting Started with Create React App
 
