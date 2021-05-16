@@ -265,12 +265,6 @@ nav .btn {
   width: 100%;
 }
 
-.logout-icon {
-  height: auto;
-  font-size: 1.25rem;
-  width: 100%;
-}
-
 @media screen and (max-width: 900px) {
   nav .links-container {
     display: none;

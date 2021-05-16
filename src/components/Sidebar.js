@@ -1,9 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaShoppingCart, FaUserPlus, FaWindowClose } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaUserPlus,
+  FaWindowClose,
+  FaUserMinus,
+} from "react-icons/fa";
 import { useGlobalContext } from "../context";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Sidebar() {
+  const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const { showSidebar, setShowSidebar, cartItems } = useGlobalContext();
   const totalItems = cartItems.reduce((value, item) => {
     value += item.quantity;
@@ -20,29 +27,48 @@ function Sidebar() {
       <div className="sidebar-center">
         <div className="links-container">
           <Link to="/">
-            <button className="btn">Home</button>
+            <button className="btn" onClick={() => setShowSidebar(false)}>
+              Home
+            </button>
           </Link>
           <Link to="/about">
-            <button className="btn">About</button>
+            <button className="btn" onClick={() => setShowSidebar(false)}>
+              About
+            </button>
           </Link>
           <Link to="/products">
-            <button className="btn">Products</button>
+            <button className="btn" onClick={() => setShowSidebar(false)}>
+              Products
+            </button>
           </Link>
         </div>
         <div className="user-container">
           <Link to="/cart">
-            <button className="btn user-btn">
+            <button
+              className="btn user-btn"
+              onClick={() => setShowSidebar(false)}
+            >
               <span>Cart</span> <FaShoppingCart />
               <div className="number-items">
                 <p className="total-items">{totalItems}</p>
               </div>
             </button>
           </Link>
-          <Link to="/home">
-            <button className="btn user-btn">
-              <span>Login</span> <FaUserPlus />
+          {isAuthenticated ? (
+            <button
+              className="btn user-btn logout-icon"
+              onClick={() => logout()}
+            >
+              <span>Log out</span> <FaUserMinus />
             </button>
-          </Link>
+          ) : (
+            <button
+              className="btn user-btn login-icon"
+              onClick={() => loginWithRedirect()}
+            >
+              <span>Log in</span> <FaUserPlus />
+            </button>
+          )}
         </div>
       </div>
     </aside>
