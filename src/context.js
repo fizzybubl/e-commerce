@@ -19,6 +19,16 @@ const AppProvider = ({ children }) => {
   const [view, setView] = useState("grid");
   const [cartItems, setCartItems] = useState([]);
   const [amount, setAmount] = useState(1);
+  const [showUserMenu, setShowUserMenu] = useState(false);
+  const [coords, setCoords] = useState({});
+
+  const openUserMenu = (location) => {
+    setCoords(location);
+    setShowUserMenu(true);
+  };
+  const closeUserMenu = () => {
+    setShowUserMenu(false);
+  };
 
   const deleteItem = (id) => {
     const newCartItems = cartItems.filter((item) => item.id !== id);
@@ -135,6 +145,10 @@ const AppProvider = ({ children }) => {
         handleToggleCart,
         deleteItem,
         setCartItems,
+        openUserMenu,
+        closeUserMenu,
+        showUserMenu,
+        coords,
       }}
     >
       {children}

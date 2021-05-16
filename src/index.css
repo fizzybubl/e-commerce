@@ -219,6 +219,58 @@ nav .btn {
   font-size: 1.5rem;
 }
 
+.user-menu {
+  display: none;
+  min-height: 10vh;
+  width: 15vw;
+  background: var(--white4);
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 5rem;
+  left: 80%;
+  transform: translateX(-50%);
+  z-index: 999;
+  padding: 2rem;
+  border-radius: 0.4rem;
+  transition: var(--transition);
+}
+
+.user-menu-toggle,
+.user-menu-btn {
+  height: 100%;
+}
+
+.user-menu::before {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid var(--white4);
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+.user-menu.show {
+  display: block;
+}
+
+.user-menu-center {
+  display: grid;
+  place-items: center;
+  grid-template-columns: auto;
+  width: 100%;
+}
+
+.logout-icon {
+  height: auto;
+  font-size: 1.25rem;
+  width: 100%;
+}
+
 @media screen and (max-width: 900px) {
   nav .links-container {
     display: none;
@@ -462,10 +514,11 @@ aside .user-container {
   padding: 10px;
   margin: 10px;
 }
-.vision,
-.mission,
+.vision p,
+.mission p,
 .history p {
   font-weight: 600;
+  color: white;
 }
 
 /* ======

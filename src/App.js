@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Sidebar from "./components/Sidebar";
 import ScrollToTop from "./components/ScrollToTop";
 import Cart from "./pages/Cart";
+import UserMenu from "./components/UserMenu";
 
 function App() {
   const { loading } = useGlobalContext();
@@ -22,6 +23,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Navbar />
+      <UserMenu />
       <Sidebar />
       <Switch>
         <Route exact path="/">
