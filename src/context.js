@@ -85,7 +85,32 @@ const AppProvider = ({ children }) => {
   };
 
   const filterProducts = () => {
-    if (company !== "all" && category !== "all") {
+    if (company !== "all" && category !== "all" && name) {
+      const newProducts = data.filter(
+        (product) =>
+          product.company === company &&
+          product.category === category &&
+          product.price <= price &&
+          item.name.includes(name)
+      );
+      setProducts(newProducts);
+    } else if (company !== "all" && name) {
+      const newProducts = data.filter(
+        (product) =>
+          product.company === company &&
+          product.price <= price &&
+          item.name.includes(name)
+      );
+      setProducts(newProducts);
+    } else if (category !== "all" && name) {
+      const newProducts = data.filter(
+        (product) =>
+          product.category === category &&
+          product.price <= price &&
+          item.name.includes(name)
+      );
+      setProducts(newProducts);
+    } else if (category !== "all" && company !== "all") {
       const newProducts = data.filter(
         (product) =>
           product.company === company &&
@@ -97,10 +122,13 @@ const AppProvider = ({ children }) => {
       const newProducts = data.filter(
         (product) => product.company === company && product.price <= price
       );
-      setProducts(newProducts);
     } else if (category !== "all") {
       const newProducts = data.filter(
         (product) => product.category === category && product.price <= price
+      );
+    } else if (name) {
+      const newProducts = data.filter(
+        (product) => product.price <= price && item.name.includes(name)
       );
       setProducts(newProducts);
     } else {
@@ -150,32 +178,15 @@ const AppProvider = ({ children }) => {
     setProducts(sortedProducts);
   };
 
-  const getProductsByName = () => {
-    if (name) {
-      const newProducts = products.filter((item) => {
-        if (item.name.includes(name)) {
-          return item;
-        }
-      });
-      setProducts(newProducts);
-    } else {
-      setProducts(data);
-    }
-  };
-
   useEffect(() => {
     filterProducts();
-  }, [price, company, category]);
+  }, [price, company, category, name]);
 
   useEffect(() => {
     setLoading(true);
     const timeout = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timeout);
   }, []);
-
-  useEffect(() => {
-    getProductsByName();
-  }, [name]);
 
   return (
     <AppContext.Provider
