@@ -122,6 +122,9 @@ header {
   h1 {
     font-size: 1.75rem;
   }
+  h3 {
+    font-size: 1.25rem;
+  }
 }
 
 /* =========
@@ -307,6 +310,9 @@ nav .btn {
   .number-items {
     transform: translate(65px, -7px);
   }
+  .logo {
+    font-size: 1.25rem;
+  }
 }
 
 /* =========
@@ -392,7 +398,7 @@ aside .user-container {
   background-color: var(--blue2);
   border-style: none;
   color: white;
-  height: 2.5rem;
+  height: auto;
   width: 10rem;
   padding: 5px;
   font-size: 2rem;
@@ -491,6 +497,9 @@ aside .user-container {
   }
   .grid-container {
     max-width: 100%;
+  }
+  .shop-now {
+    font-size: 1.5rem;
   }
 }
 
