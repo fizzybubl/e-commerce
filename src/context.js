@@ -122,10 +122,12 @@ const AppProvider = ({ children }) => {
       const newProducts = data.filter(
         (product) => product.company === company && product.price <= price
       );
+      setProducts(newProducts);
     } else if (category !== "all") {
       const newProducts = data.filter(
         (product) => product.category === category && product.price <= price
       );
+      setProducts(newProducts);
     } else if (name) {
       const newProducts = data.filter(
         (product) => product.price <= price && product.name.includes(name)
