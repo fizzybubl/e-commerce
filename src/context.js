@@ -109,15 +109,73 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const sortProducts = (e) => {
+    let sortedProducts = [...products];
+    const sortType = e.target.value;
+
+    switch (sortType) {
+      case "lowest":
+        sortedProducts.sort((a, b) => a.price - b.price);
+        break;
+      case "highest":
+        sortedProducts.sort((a, b) => b.price - a.price);
+        break;
+      case "a-z":
+        sortedProducts.sort((a, b) => {
+          let nameA = a.name.toUpperCase();
+          let nameB = b.name.toUpperCase();
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+          return 0;
+        });
+        break;
+      case "z-a":
+        sortedProducts.sort((a, b) => {
+          let nameA = a.name.toUpperCase();
+          let nameB = b.name.toUpperCase();
+          if (nameA > nameB) {
+            return -1;
+          }
+          if (nameA < nameB) {
+            return 1;
+          }
+          return 0;
+        });
+        break;
+    }
+    setProducts(sortedProducts);
+  };
+
+  const getProductsByName = () => {
+    if (name) {
+      const newProducts = products.filter((item) => {
+        if (item.name.includes(name)) {
+          return item;
+        }
+      });
+      setProducts(newProducts);
+    } else {
+      setProducts(data);
+    }
+  };
+
   useEffect(() => {
     filterProducts();
-  }, [price, name, company, category]);
+  }, [price, company, category]);
 
   useEffect(() => {
     setLoading(true);
     const timeout = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    getProductsByName();
+  }, [name]);
 
   return (
     <AppContext.Provider
@@ -149,6 +207,7 @@ const AppProvider = ({ children }) => {
         closeUserMenu,
         showUserMenu,
         coords,
+        sortProducts,
       }}
     >
       {children}

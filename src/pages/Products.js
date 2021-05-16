@@ -17,6 +17,7 @@ function Products() {
     setCategory,
     view,
     setView,
+    sortProducts,
   } = useGlobalContext();
   const priceRef = useRef(null);
   const searchRef = useRef(null);
@@ -134,6 +135,7 @@ function Products() {
                 name="sort-options-menu"
                 id="sort-options-menu"
                 className="sort-options-menu"
+                onChange={sortProducts}
               >
                 <option value="lowest">{"Price (Lowest)"}</option>
                 <option value="highest">{"Price (Highest)"}</option>
