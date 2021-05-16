@@ -10,7 +10,7 @@ ReactDOM.render(
     <Auth0Provider
       domain="dev-cej7qgal.eu.auth0.com"
       clientId="awCg3ieR8mTKCWqkIT65U05fxUcPoHI1"
-      redirectUri={window.location.origin}
+      redirectUri="https://e-commerce-dragos.netlify.app"
     >
       <AppProvider>
         <App />
