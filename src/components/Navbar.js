@@ -13,6 +13,7 @@ function Navbar() {
     cartItems,
     openUserMenu,
     closeUserMenu,
+    isSticky,
   } = useGlobalContext();
   const totalItems = cartItems.reduce((value, item) => {
     value += item.quantity;
@@ -33,7 +34,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="nav-bar">
+    <nav className={isSticky ? "nav-bar sticky" : "nav-bar"}>
       <div className="nav-center" onMouseOver={handleUserMenu}>
         <Link to="/">
           <h3 className="logo">

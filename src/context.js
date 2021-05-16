@@ -21,6 +21,16 @@ const AppProvider = ({ children }) => {
   const [amount, setAmount] = useState(1);
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [coords, setCoords] = useState({});
+  const [isSticky, setSticky] = useState(false);
+
+  const handleScroll = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 150) {
+      setSticky(true);
+    } else {
+      setSticky(false);
+    }
+  };
 
   const openUserMenu = (location) => {
     setCoords(location);
@@ -190,6 +200,11 @@ const AppProvider = ({ children }) => {
     return () => clearTimeout(timeout);
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("scroll", () => handleScroll());
+    return window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -221,6 +236,7 @@ const AppProvider = ({ children }) => {
         showUserMenu,
         coords,
         sortProducts,
+        isSticky,
       }}
     >
       {children}
