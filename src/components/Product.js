@@ -18,7 +18,7 @@ function Product({ image, id, name, price, info }) {
         </div>
       </div>
       <div className={view === "grid" ? "info-container" : "product-info"}>
-        <h3>{name}</h3>
+        <h3 className="product-name">{name}</h3>
         <p className="price">${price}</p>
         {view === "list" && <p>{info}</p>}
       </div>
