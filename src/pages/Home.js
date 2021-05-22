@@ -28,6 +28,7 @@ function Home() {
             </Link>
           </div>
           <img
+            className="about-img"
             src="https://images.pexels.com/photos/1571471/pexels-photo-1571471.jpeg?cs=srgb&dl=pexels-vecislavas-popa-1571471.jpg&fm=jpg"
             alt=""
           />

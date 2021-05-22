@@ -47,7 +47,7 @@ code {
    ========= */
 
 main {
-  min-height: 60vh;
+  min-height: 80vh;
   max-width: 100vw;
 }
 a {
@@ -57,9 +57,9 @@ a {
 img {
   height: 100%;
   width: 100%;
-  min-height: 300px;
+  height: 270px;
   min-width: 330px;
-  max-height: 330px;
+
   object-fit: cover;
   object-position: center;
 }
@@ -113,7 +113,7 @@ header {
 
 @media screen and (max-width: 900px) {
   img {
-    min-height: 250px;
+    height: 250px;
     min-width: 10vw;
     max-width: 80vw;
   }
@@ -413,7 +413,7 @@ aside .user-container {
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
   max-width: 70vw;
-  margin: 5vh auto;
+  /* margin: 5vh auto; */
 }
 
 .shop-now {
@@ -439,12 +439,17 @@ aside .user-container {
   row-gap: 5px;
 }
 
+.about-img {
+  height: 100%;
+  width: 100%;
+}
+
 /* ============ */
 
 .featured-products {
   display: grid;
   place-items: center;
-  row-gap: 5px;
+  row-gap: 1rem;
   background-color: var(--white4);
 }
 
@@ -452,7 +457,7 @@ aside .user-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   column-gap: 5px;
-  row-gap: 5px;
+  row-gap: 1rem;
   place-items: center;
   max-width: 70vw;
 }
@@ -573,6 +578,7 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: var(--footer);
+  width: 100%;
 }
 .footer-center {
   display: grid;
@@ -597,7 +603,7 @@ a {
   display: flex;
   align-items: center;
   font-family: Roboto;
-  height: 20vh;
+  height: 15vh;
   margin: 0;
   margin-top: 3px;
   background-color: var(--blue1);
@@ -912,12 +918,12 @@ input::placeholder {
 ======== */
 
 .title {
-  margin: 30vh auto;
   width: 100%;
   text-align: center;
-  display: grid;
-  grid-template-columns: auto;
-  row-gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 86vh;
 }
 
 .cart {
@@ -1008,4 +1014,11 @@ About
 .about-us-header {
   display: grid;
   place-items: center;
+}
+
+.about-center {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

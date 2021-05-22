@@ -8,14 +8,18 @@ function Cart() {
 
   if (!cartItems.length) {
     return (
-      <section>
-        <div className="title">
-          <h2>Cart is Empty</h2>
-          <Link to="/products">
-            <button className="btn">Start shopping!</button>
-          </Link>
-        </div>
-      </section>
+      <main>
+        <section>
+          <div className="title">
+            <div className="empty-container">
+              <h2>Cart is Empty</h2>
+              <Link to="/products">
+                <button className="btn">Start shopping!</button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      </main>
     );
   }
 
