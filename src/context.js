@@ -22,6 +22,7 @@ const AppProvider = ({ children }) => {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [coords, setCoords] = useState({});
   const [isSticky, setSticky] = useState(false);
+  const [viewConfigBar, setViewConfigBar] = useState(false);
 
   const handleScroll = () => {
     console.log(window.scrollY);
@@ -237,6 +238,8 @@ const AppProvider = ({ children }) => {
         coords,
         sortProducts,
         isSticky,
+        viewConfigBar,
+        setViewConfigBar,
       }}
     >
       {children}
