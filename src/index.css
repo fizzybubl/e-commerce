@@ -937,7 +937,7 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 86vh;
+  height: calc(100vh - 8rem);
 }
 
 .cart {
@@ -1031,7 +1031,7 @@ About
 }
 
 .about-center {
-  height: 70vh;
+  height: calc(100vh - 8rem - 15vh);
   display: flex;
   align-items: center;
   justify-content: center;
